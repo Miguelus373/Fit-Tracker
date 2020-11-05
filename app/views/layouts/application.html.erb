@@ -10,6 +10,14 @@
   </head>
 
   <body>
-    <%= yield %>
+    <nav>
+    <% if logged_in? %>
+      <p> Logged In as: <%= current_user.Name %> </p>
+      <%= link_to  "Log Out", '/logout', method: 'post' %>
+    <% end %>
+    </nav>
+    <main>
+      <%= yield %>
+    </main>
   </body>
 </html>
