@@ -7,7 +7,5 @@ class CreateGroups < ActiveRecord::Migration[6.0]
 
       t.timestamps
     end
-
-    add_foreign_key :groups, :users, column: :user_id
   end
 end
