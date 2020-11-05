@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Authorid:</strong>
+  <%= @exercise.AuthorId %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @exercise.Name %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @exercise.Amount %>
+</p>
+
+<%= link_to 'Edit', edit_exercise_path(@exercise) %> |
+<%= link_to 'Back', exercises_path %>
