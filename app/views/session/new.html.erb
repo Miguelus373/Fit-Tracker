@@ -1,13 +1,15 @@
-<p id="alert"><%= alert %></p>
+<div class="login-page-content">
+  <h1>LOGIN</h1>
 
-<%= form_tag '/login' do %>
+  <p id="alert"><%= alert %></p>
 
-<%= label_tag :Name%><br />
+  <%= form_tag '/login' do %>
 
-<%= text_field_tag :Name %>
-<br>
-<%= submit_tag "Login" %>
+  <%= text_field_tag :Name, '', placeholder: 'Name', class: "name-input" %>
 
-<%end%>
+  <%= submit_tag "Log in", class: 'submit-btn' %>
 
-<%= link_to 'Back', users_path %>
+  <%end%>
+
+  <%= link_to raw('<i class="fa fa-arrow-left" aria-hidden="true"></i>'), root_path, class: 'back-btn' %>
+</div>

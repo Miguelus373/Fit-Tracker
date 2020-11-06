@@ -1,4 +1,6 @@
 class SessionController < ApplicationController
+  def index; end
+  
   def new; end
 
   def create
@@ -6,7 +8,7 @@ class SessionController < ApplicationController
     if @user
       session[:user_id] = @user.id
       flash[:notice] = 'Succesfully logged in'
-      redirect_to users_path
+      redirect_to exercises_path
     else
       flash.now[:alert] = 'Please enter a valid Name'
       render 'new'
@@ -16,6 +18,6 @@ class SessionController < ApplicationController
   def destroy
     session[:user_id] = nil
     flash[:notice] = 'Succesfully logged out'
-    redirect_to users_path
+    redirect_to root_path
   end
 end

@@ -6,6 +6,7 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'https://use.fontawesome.com/7089435224.css' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
@@ -16,7 +17,7 @@
       <%= link_to  "Log Out", '/logout', method: 'post' %>
     <% end %>
     </nav>
-    <main>
+    <main class="app-content">
       <%= yield %>
     </main>
   </body>
