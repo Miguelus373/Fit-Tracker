@@ -11,13 +11,9 @@
   </head>
 
   <body>
-    <nav>
-    <% if logged_in? %>
-      <p> Logged In as: <%= current_user.Name %> </p>
-      <%= link_to  "Log Out", '/logout', method: 'post' %>
-    <% end %>
-    </nav>
+    
     <main class="app-content">
+    <%= navbar %>
       <%= yield %>
     </main>
   </body>

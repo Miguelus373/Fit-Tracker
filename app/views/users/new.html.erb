@@ -1,5 +1,7 @@
-<h1>New User</h1>
+<div class="login-page-content">
+  <h1 class='nav-title'>REGISTER</h1>
+  
+  <%= render 'form', user: @user %>
 
-<%= render 'form', user: @user %>
-
-<%= link_to 'Back', users_path %>
+  <%= link_to raw('<i class="fa fa-arrow-left" aria-hidden="true"></i>'), root_path, class: 'back-btn' %>
+</div>

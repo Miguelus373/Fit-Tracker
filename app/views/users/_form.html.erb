@@ -1,22 +1,7 @@
 <%= form_with(model: user, local: true) do |form| %>
-  <% if user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+<p id="alert"> <%= alert %> </p>
 
-      <ul>
-        <% user.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= form.text_field :Name, placeholder: 'Name', class: 'name-input' %>
 
-  <div class="field">
-    <%= form.label :Name %>
-    <%= form.text_field :Name %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+<%= form.submit 'Sign up', class: 'submit-btn' %>
 <% end %>
