@@ -1,4 +1,7 @@
-class SessionController < ApplicationController
+class SessionsController < ApplicationController
+  before_action :require_login, only: [:destroy]
+  before_action :logged_out?, except: [:destroy]
+  
   def index; end
   
   def new; end

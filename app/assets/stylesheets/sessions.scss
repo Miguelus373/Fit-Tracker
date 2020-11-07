@@ -3,18 +3,18 @@ $second-color: #5fb523;
 $text-color: #434b54;
 
 .main-page-content {
-height: 100vh;
-display: flex;
-flex-direction: column;
-justify-content: flex-end;
-align-items: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
 
   .main-title {
     position: absolute;
     top: 35%;
     font-size: 2.5rem;
     color: $text-color;
-    font-family: 'Lobster Two', cursive;
+    font-family: "Lobster Two", cursive;
     letter-spacing: 2.5px;
   }
 
@@ -26,14 +26,14 @@ align-items: center;
     color: white;
     background-color: $main-color;
   }
-  
+
   .signup-btn {
     color: $text-color;
     margin-bottom: 10%;
   }
 }
 
-.login-page-content {
+.page-content {
   text-align: center;
   height: 100vh;
   position: relative;
@@ -51,7 +51,7 @@ align-items: center;
       border: none;
       cursor: pointer;
     }
-  
+
     .name-input {
       margin-top: 1.5rem;
       width: 80%;
@@ -61,16 +61,18 @@ align-items: center;
     }
   }
 
-  .back-btn {
+  .left-btn {
     position: absolute;
     padding: 0.6rem 0.8rem;
     top: 0.7rem;
     left: 0.6rem;
     font-size: 1rem;
     color: white;
+    z-index: 1;
   }
 
-  .submit-btn:hover, .back-btn:hover {
+  .submit-btn:hover,
+  .left-btn:hover {
     background-color: #6d9ed6;
   }
 }

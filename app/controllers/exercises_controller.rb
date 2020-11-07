@@ -1,5 +1,5 @@
 class ExercisesController < ApplicationController
-  before_action :set_exercise, only: [:show, :edit, :update, :destroy]
+  before_action :require_login
 
   # GET /exercises
   # GET /exercises.json
@@ -15,10 +15,6 @@ class ExercisesController < ApplicationController
   # GET /exercises/new
   def new
     @exercise = Exercise.new
-  end
-
-  # GET /exercises/1/edit
-  def edit
   end
 
   # POST /exercises
@@ -37,20 +33,6 @@ class ExercisesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /exercises/1
-  # PATCH/PUT /exercises/1.json
-  def update
-    respond_to do |format|
-      if @exercise.update(exercise_params)
-        format.html { redirect_to @exercise, notice: 'Exercise was successfully updated.' }
-        format.json { render :show, status: :ok, location: @exercise }
-      else
-        format.html { render :edit }
-        format.json { render json: @exercise.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
   # DELETE /exercises/1
   # DELETE /exercises/1.json
   def destroy
@@ -62,11 +44,6 @@ class ExercisesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_exercise
-      @exercise = Exercise.find(params[:id])
-    end
-
     # Only allow a list of trusted parameters through.
     def exercise_params
       params.require(:exercise).permit(:AuthorId, :Name, :Amount)

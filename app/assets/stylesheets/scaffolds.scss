@@ -19,7 +19,7 @@ td {
   line-height: 18px;
 }
 
-nav {
+.nav {
   position: absolute;
   top: 0;
   width: 100%;
@@ -27,6 +27,17 @@ nav {
   width: 28rem;
   margin: 0 auto;
   background: linear-gradient($main-color, #2b63a3);
+
+  .logout-btn {
+    position: absolute;
+    padding: 0.6rem 0.8rem;
+    top: 0.6rem;
+    right: 0.6rem;
+    background-color: transparent;
+    color: white;
+    border: none;
+    z-index: 1;
+  }
 }
 
 main {
@@ -83,6 +94,8 @@ div.actions {
   font-size: 1.2rem;
   font-weight: 300;
   margin: 0;
+  top: 0;
+  position: relative;
 }
 
 .field_with_errors {
@@ -116,4 +129,9 @@ div.actions {
 
 label {
   display: block;
+}
+
+.logout-btn:hover {
+  cursor: pointer;
+  background-color:  #6d9ed6;
 }

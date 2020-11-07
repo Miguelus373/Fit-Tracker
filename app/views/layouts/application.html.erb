@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>RoRCapstone</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag 'https://use.fontawesome.com/7089435224.css' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<head>
+  <title>RoRCapstone</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-  <body>
-    
-    <main class="app-content">
-    <%= navbar %>
-      <%= yield %>
-    </main>
-  </body>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag 'https://use.fontawesome.com/7089435224.css' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+  <main class="page-content">
+    <%= render 'layouts/navbar' %>
+    <%= yield %>
+  </main>
+</body>
+
 </html>

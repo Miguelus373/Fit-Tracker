@@ -1,0 +1,10 @@
+<% unless current_page?(root_path) %>
+  <nav class="nav">
+    <% if logged_in? %>
+      <%= link_to  raw('<i class="fa fa-bars" aria-hidden="true"></i>'), '', class: 'left-btn' %>
+      <%= link_to  'Logout', '/logout', method: 'post', class: 'logout-btn' %>
+    <% else %>
+      <%= link_to raw('<i class="fa fa-arrow-left" aria-hidden="true"></i>'), root_path, class: 'left-btn' %>
+    <% end %>
+  </nav>
+<% end %>

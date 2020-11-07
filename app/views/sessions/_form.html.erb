@@ -1,0 +1,9 @@
+<p id="alert"><%= alert %></p>
+
+<%= form_tag '/login' do %>
+
+<%= text_field_tag :Name, '', placeholder: 'Name', class: "name-input" %>
+
+<%= submit_tag "Log in", class: 'submit-btn' %>
+
+<%end%>
