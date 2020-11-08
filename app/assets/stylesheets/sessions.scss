@@ -33,46 +33,34 @@ $text-color: #434b54;
   }
 }
 
-.page-content {
-  text-align: center;
-  height: 100vh;
-  position: relative;
+.menu {
+  background: linear-gradient(to top right, $main-color, #122d4d);
+  height: 100%;
 
-  form {
-    width: 100%;
+  ul {
+    list-style: none;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 
-    .submit-btn {
-      position: absolute;
-      padding: 0.6rem 0.8rem;
-      top: 0.7rem;
-      right: 0.6rem;
-      background-color: transparent;
+    li {
       color: white;
-      border: none;
-      cursor: pointer;
+      font-size: 1.2rem;
+      font-weight: 300;
+      padding: 1.2rem;
+
+
+      a {
+        color: white;
+        padding: 0.6rem 0.8rem;
+        border-radius: 4px;
+
+      }
+
+      a:hover {
+        background-color: $main-color;
+      }
     }
-
-    .name-input {
-      margin-top: 1.5rem;
-      width: 80%;
-      border: 1px lightgray solid;
-      padding: 0.7rem 1rem;
-      border-radius: 4px;
-    }
-  }
-
-  .left-btn {
-    position: absolute;
-    padding: 0.6rem 0.8rem;
-    top: 0.7rem;
-    left: 0.6rem;
-    font-size: 1rem;
-    color: white;
-    z-index: 1;
-  }
-
-  .submit-btn:hover,
-  .left-btn:hover {
-    background-color: #6d9ed6;
   }
 }

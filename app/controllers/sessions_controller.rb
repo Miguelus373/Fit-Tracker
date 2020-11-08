@@ -1,9 +1,13 @@
 class SessionsController < ApplicationController
-  before_action :require_login, only: [:destroy]
-  before_action :logged_out?, except: [:destroy]
+  before_action :require_login, only: [:destroy, :show]
+  before_action :logged_out?, except: [:destroy, :show]
   
   def index; end
   
+  def show
+    @user = current_user
+  end
+
   def new; end
 
   def create

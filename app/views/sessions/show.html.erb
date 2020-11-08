@@ -1,0 +1,9 @@
+<div class="menu">
+  <ul>
+    <li><%= current_user.Name %></li>
+    <li><%= link_to 'My exercises', exercises_path %></li>
+    <li><%= link_to 'External exercises', exercises_path %></li>
+    <li><%= link_to 'My groups', groups_path %></li>
+    <li><%= link_to 'Logout', '/logout', method: 'post' %></li>
+  </ul>
+</div>

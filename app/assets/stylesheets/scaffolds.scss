@@ -98,38 +98,50 @@ div.actions {
   position: relative;
 }
 
-.field_with_errors {
-  padding: 2px;
-  background-color: red;
-  display: table;
+.page-content {
+  text-align: center;
+  height: 100vh;
+  position: relative;
+
+  form {
+    width: 100%;
+
+    .submit-btn {
+      position: absolute;
+      padding: 0.6rem 0.8rem;
+      top: 0.7rem;
+      right: 0.6rem;
+      background-color: transparent;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    .name-input {
+      margin-top: 1.5rem;
+      width: 80%;
+      border: 1px lightgray solid;
+      padding: 0.7rem 1rem;
+      border-radius: 4px;
+    }
+  }
+
+  .left-btn {
+    position: absolute;
+    padding: 0.6rem 0.8rem;
+    top: 0.7rem;
+    left: 0.6rem;
+    font-size: 1rem;
+    color: white;
+    z-index: 1;
+  }
+
+  .submit-btn:hover,
+  .left-btn:hover {
+    background-color: #6d9ed6;
+  }
 }
 
-#error_explanation {
-  width: 450px;
-  border: 2px solid red;
-  padding: 7px 7px 0;
-  margin-bottom: 20px;
-  background-color: #f0f0f0;
-}
-
-#error_explanation h2 {
-  text-align: left;
-  font-weight: bold;
-  padding: 5px 5px 5px 15px;
-  font-size: 12px;
-  margin: -7px -7px 0;
-  background-color: #c00;
-  color: #fff;
-}
-
-#error_explanation ul li {
-  font-size: 12px;
-  list-style: square;
-}
-
-label {
-  display: block;
-}
 
 .logout-btn:hover {
   cursor: pointer;
