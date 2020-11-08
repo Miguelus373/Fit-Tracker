@@ -20,7 +20,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to exercises_path
     else
-      flash.now[:alert] = 'Name already taken'
+      flash.now[:alert] = @user.errors.full_messages[0]
       render 'new'
     end
   end
@@ -36,6 +36,6 @@ class UsersController < ApplicationController
   private
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:Name)
+      params.require(:user).permit(:Name, :icon)
     end
 end

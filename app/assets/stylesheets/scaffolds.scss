@@ -142,8 +142,26 @@ div.actions {
   }
 }
 
+.icons-field {
+  padding-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+
+  .icon-title {
+    color: $main-color;
+    font-size: 1rem;
+    text-align: left;
+    padding: 1.5rem 2rem;
+    width: 100%;
+  }
+
+  label {
+    width: 33%;
+    padding: 0.5rem 0;
+  }
+}
 
 .logout-btn:hover {
   cursor: pointer;
-  background-color:  #6d9ed6;
+  background-color: #6d9ed6;
 }
