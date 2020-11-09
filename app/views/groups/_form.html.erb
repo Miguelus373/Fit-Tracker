@@ -1,32 +1,9 @@
 <%= form_with(model: group, local: true) do |form| %>
-  <% if group.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(group.errors.count, "error") %> prohibited this group from being saved:</h2>
+<p id="alert"> <%= alert %> </p>
 
-      <ul>
-        <% group.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= form.text_field :Name, placeholder: 'Name', class: 'name-input' %>
 
-  <div class="field">
-    <%= form.label :Name %>
-    <%= form.text_field :Name %>
-  </div>
+<%= form.text_field :Icon %>
 
-  <div class="field">
-    <%= form.label :Icon %>
-    <%= form.text_field :Icon %>
-  </div>
-
-  <div class="field">
-    <%= form.label :CreatedAt %>
-    <%= form.datetime_select :CreatedAt %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+<%= form.submit 'Save', class: 'action-btn' %>
 <% end %>

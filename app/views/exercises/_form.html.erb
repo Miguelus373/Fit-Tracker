@@ -1,32 +1,10 @@
 <%= form_with(model: exercise, local: true) do |form| %>
-  <% if exercise.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(exercise.errors.count, "error") %> prohibited this exercise from being saved:</h2>
+<p id="alert"> <%= alert %> </p>
 
-      <ul>
-        <% exercise.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= form.text_field :Name, placeholder: 'Name', class: 'name-input' %>
 
-  <div class="field">
-    <%= form.label :AuthorId %>
-    <%= form.number_field :AuthorId %>
-  </div>
+  <%= form.number_field :Amount, placeholder: 'Reps', class: 'name-input' %>
 
-  <div class="field">
-    <%= form.label :Name %>
-    <%= form.text_field :Name %>
-  </div>
+  <%= form.submit 'Save', class: 'action-btn' %>
 
-  <div class="field">
-    <%= form.label :Amount %>
-    <%= form.number_field :Amount %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>

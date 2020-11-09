@@ -4,42 +4,24 @@ class ExercisesController < ApplicationController
   # GET /exercises
   # GET /exercises.json
   def index
-    @exercises = Exercise.all
-  end
-
-  # GET /exercises/1
-  # GET /exercises/1.json
-  def show
+    @exercises = current_user.exercises
   end
 
   # GET /exercises/new
   def new
-    @exercise = Exercise.new
+    @exercise = current_user.exercises.new
   end
 
   # POST /exercises
   # POST /exercises.json
   def create
-    @exercise = Exercise.new(exercise_params)
+    @exercise = current_user.exercises.new(exercise_params)
 
-    respond_to do |format|
-      if @exercise.save
-        format.html { redirect_to @exercise, notice: 'Exercise was successfully created.' }
-        format.json { render :show, status: :created, location: @exercise }
-      else
-        format.html { render :new }
-        format.json { render json: @exercise.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /exercises/1
-  # DELETE /exercises/1.json
-  def destroy
-    @exercise.destroy
-    respond_to do |format|
-      format.html { redirect_to exercises_url, notice: 'Exercise was successfully destroyed.' }
-      format.json { head :no_content }
+    if @exercise.save
+      redirect_to exercises_path, notice: 'Exercise was successfully created.'
+    else
+      flash.now[:alert] = 'Somethig went wrong, please check your data and try again'
+      render :new
     end
   end
 
