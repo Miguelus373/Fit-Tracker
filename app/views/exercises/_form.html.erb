@@ -5,6 +5,8 @@
 
   <%= form.number_field :Amount, placeholder: 'Reps', class: 'name-input' %>
 
+  <%= form.hidden_field :group, value: params[:group]  %>
+
   <%= form.submit 'Save', class: 'action-btn' %>
 
 <% end %>

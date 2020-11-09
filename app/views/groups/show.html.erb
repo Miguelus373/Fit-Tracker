@@ -2,10 +2,6 @@
 
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Createdat:</strong>
-  <%= @group.created_at %>
-</p>
+<p class="main-track">Total exercises: <span><%= @group.exercises.count %></span><p>
 
-<%= link_to 'Edit', edit_group_path(@group) %> |
-<%= link_to 'Back', groups_path %>
+<%= link_to raw('<span>Add Exercise</span>'), new_exercise_path(group: @group.id), class: 'action-btn' %>

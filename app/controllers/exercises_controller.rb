@@ -9,16 +9,21 @@ class ExercisesController < ApplicationController
 
   # GET /exercises/new
   def new
-    @exercise = current_user.exercises.new
+    @exercise = current_user.exercises.new 
   end
-
+  
   # POST /exercises
   # POST /exercises.json
   def create
     @exercise = current_user.exercises.new(exercise_params)
-
+    
     if @exercise.save
-      redirect_to exercises_path, notice: 'Exercise was successfully created.'
+      unless params[:exercise][:group] == ''
+        Group.find(params[:exercise][:group]).exercises << @exercise
+        return redirect_to group_path(params[:exercise][:group]), 
+        notice: 'Exercise successfully added.'
+      end
+      redirect_to exercises_path, notice: 'Exercise successfully created.'
     else
       flash.now[:alert] = 'Somethig went wrong, please check your data and try again'
       render :new
