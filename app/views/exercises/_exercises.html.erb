@@ -1,0 +1,19 @@
+<div class="item-box">
+<% @exercises.reverse_each do |exercise| %>
+
+<% if params[:external] %>
+<div class="item">
+  <%= image_tag(exercise.user.icon, class: 'item-icon') %>
+  <p class='item-name'> <%= exercise.Name %> </p>
+  <p> Reps: <%= exercise.Amount %> </p>
+  <p> <%= time_ago_in_words exercise.created_at %> ago </p>
+</div>
+<% else %>
+<%= link_to raw("#{image_tag(exercise.groups.first.Icon, class: 'item-icon')}
+      <p class='item-name'> #{exercise.Name} </p>
+      <p> Reps: #{exercise.Amount} </p>
+      <p> #{time_ago_in_words exercise.created_at} ago </p>"), 
+    group_path(exercise.groups.first.id), class: 'item' %>
+<% end %>
+<% end %>
+</div>

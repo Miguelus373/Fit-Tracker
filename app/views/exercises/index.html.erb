@@ -2,25 +2,6 @@
 
 <p id="notice"><%= notice %></p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Exercise</th>
-      <th>Reps</th>
-      <th></th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @exercises.order(:created_at).reverse_each do |exercise| %>
-    <tr>
-      <td><%= exercise.Name %></td>
-      <td><%= exercise.Amount %></td>
-      <td><%= time_ago_in_words exercise.created_at %> ago</td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= render 'exercises' %>
 
 <%= link_to raw("<span>New Exercise</span>"), new_exercise_path, class: 'action-btn' %>

@@ -4,7 +4,8 @@ class ExercisesController < ApplicationController
   # GET /exercises
   # GET /exercises.json
   def index
-    @exercises = current_user.exercises
+    @exercises =  params[:external] ? current_user.exercises.not_grouped : 
+    current_user.exercises.grouped
   end
 
   # GET /exercises/new

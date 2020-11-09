@@ -1,0 +1,11 @@
+<div class="item-box">
+<% @groups.reverse_each do |group| %>
+
+<%= link_to raw("#{image_tag(group.Icon, class: 'item-icon')}
+  <p class='item-name'> #{group.Name} </p>
+  <p> Total execises: #{group.exercises.count} </p>
+  <p> Created at: #{group.created_at.strftime('%d / %m / %y')} </p>"), 
+group_path(group.id), class: 'item' %>
+
+<% end %>
+</div>
