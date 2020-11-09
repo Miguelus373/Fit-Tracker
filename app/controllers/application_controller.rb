@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
   
   def logged_out?
     if logged_in?
-      redirect_to exercises_path
+      redirect_to menu_path
     else
       true
     end

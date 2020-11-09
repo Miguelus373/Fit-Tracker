@@ -12,6 +12,10 @@ class GroupsController < ApplicationController
     @group = current_user.groups.new
   end
 
+  def show
+    @group = Group.find(params[:id])
+  end
+
   # POST /groups
   # POST /groups.json
   def create
@@ -28,6 +32,6 @@ class GroupsController < ApplicationController
   private
     # Only allow a list of trusted parameters through.
     def group_params
-      params.require(:group).permit(:Name, :Icon, :CreatedAt)
+      params.require(:group).permit(:Name, :Icon)
     end
 end

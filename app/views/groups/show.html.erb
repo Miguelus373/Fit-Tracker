@@ -1,18 +1,10 @@
+<h1 class="nav-title"><%= @group.Name %></h1>
+
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @group.Name %>
-</p>
-
-<p>
-  <strong>Icon:</strong>
-  <%= @group.Icon %>
-</p>
-
-<p>
   <strong>Createdat:</strong>
-  <%= @group.CreatedAt %>
+  <%= @group.created_at %>
 </p>
 
 <%= link_to 'Edit', edit_group_path(@group) %> |

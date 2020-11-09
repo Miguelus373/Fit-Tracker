@@ -2,26 +2,16 @@
 
 <p id="notice"><%= notice %></p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Group</th>
-      <th>Icon</th>
-      <th>Created at</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="item-box">
+  <% @groups.reverse_each do |group| %>
 
-  <tbody>
-    <% @groups.reverse_each do |group| %>
-      <tr>
-        <td><%= group.Name %></td>
-        <td><%= group.Icon %></td>
-        <td><%= group.created_at %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <%= link_to raw("#{image_tag(group.Icon, class: 'item-icon')}
+    <p class='group-name'> #{group.Name} </p>
+    <p> Total execises: #{group.exercises.count} </p>
+    <p> Created at: #{group.created_at.strftime('%d / %m / %y')} </p>"), 
+  group_path(group.id), class: 'item' %>
 
+  <% end %>
+</div>
 
 <%= link_to raw('<span>New Group</span>'), new_group_path, class: 'action-btn' %>

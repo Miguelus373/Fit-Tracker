@@ -3,7 +3,22 @@
 
 <%= form.text_field :Name, placeholder: 'Name', class: 'name-input' %>
 
-<%= form.text_field :Icon %>
+<div class="icons-field">
+<%= form.label 'Please select the group icon:', class: 'icon-title' %>
+<% [
+  'https://www.flaticon.com/svg/static/icons/svg/926/926158.svg',
+  'https://www.flaticon.com/svg/static/icons/svg/926/926151.svg',
+  'https://www.flaticon.com/svg/static/icons/svg/926/926165.svg',
+  'https://www.flaticon.com/svg/static/icons/svg/926/926161.svg',
+  'https://www.flaticon.com/svg/static/icons/svg/926/926134.svg',
+  'https://www.flaticon.com/svg/static/icons/svg/926/926133.svg'
+].each do |icon| %>
+  <label>
+    <%= form.radio_button(:Icon, icon, class: 'icon-select') %>
+    <%= image_tag(icon, class: 'icon') %>
+  </label>
+<% end %>
+</div>
 
 <%= form.submit 'Save', class: 'action-btn' %>
 <% end %>
