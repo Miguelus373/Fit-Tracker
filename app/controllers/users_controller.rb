@@ -1,11 +1,6 @@
 class UsersController < ApplicationController
   before_action :require_login, except: [:new, :create]
 
-  # GET /users/1
-  # GET /users/1.json
-  def show
-  end
-
   # GET /users/new
   def new
     @user = User.new
@@ -18,18 +13,10 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
-      redirect_to exercises_path
+      redirect_to menu_path
     else
       flash.now[:alert] = @user.errors.full_messages[0]
       render 'new'
-    end
-  end
-
-  def destroy
-    @user.destroy
-    respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 

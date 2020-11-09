@@ -24,7 +24,7 @@ class ExercisesController < ApplicationController
         return redirect_to group_path(params[:exercise][:group]), 
         notice: 'Exercise successfully added.'
       end
-      redirect_to exercises_path, notice: 'Exercise successfully created.'
+      redirect_to exercises_path(external: true), notice: 'Exercise successfully created.'
     else
       flash.now[:alert] = 'Somethig went wrong, please check your data and try again'
       render :new
