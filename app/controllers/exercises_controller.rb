@@ -34,6 +34,6 @@ class ExercisesController < ApplicationController
   private
     # Only allow a list of trusted parameters through.
     def exercise_params
-      params.require(:exercise).permit(:AuthorId, :Name, :Amount)
+      params.require(:exercise).permit(:Name, :Amount, :time, :distance)
     end
 end

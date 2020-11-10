@@ -1,19 +1,21 @@
 <div class="item-box">
-<% @exercises.reverse_each do |exercise| %>
+  <% @exercises.order(:created_at).reverse_each do |exercise| %>
+  <div class="item">
+    <% if params[:external] %>
+    <%= image_tag(exercise.user.icon, class: 'item-icon') %>
 
-<% if params[:external] %>
-<div class="item">
-  <%= image_tag(exercise.user.icon, class: 'item-icon') %>
-  <p class='item-name'> <%= exercise.Name %> </p>
-  <p> Reps: <%= exercise.Amount %> </p>
-  <p> <%= time_ago_in_words exercise.created_at %> ago </p>
-</div>
-<% else %>
-<%= link_to raw("#{image_tag(exercise.groups.first.Icon, class: 'item-icon')}
-      <p class='item-name'> #{exercise.Name} </p>
-      <p> Reps: #{exercise.Amount} </p>
-      <p> #{time_ago_in_words exercise.created_at} ago </p>"), 
-    group_path(exercise.groups.first.id), class: 'item' %>
-<% end %>
-<% end %>
+    <% else %>
+    <%= link_to image_tag(exercise.groups.first.Icon), 
+    group_path(exercise.groups.first.id), class: 'item-icon' %>
+    <% end%>
+
+    <p class='item-name'> <%= exercise.Name %> </p>
+    <p class="tracker">
+      <strong><%= exercise.Amount.nil? ? '' : "#{exercise.Amount} reps" %></strong>
+      <strong><%= exercise.distance.nil? ? '' : "#{exercise.distance} km" %></strong>
+      <strong><%= exercise.time.nil? ? '' : to_time(exercise.time) %></strong>
+    </p>
+    <p> <%= time_ago_in_words exercise.created_at %> ago </p>
+  </div>
+  <% end %>
 </div>

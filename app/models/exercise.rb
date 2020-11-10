@@ -1,6 +1,6 @@
 class Exercise < ApplicationRecord
   validates :Name, presence: true
-  validates :Amount, numericality: { greater_than_or_equal_to: 0 }
+  validates :Amount, :distance, :time, numericality: { greater_than: 0, allow_nil: true }
 
   scope :grouped, -> { joins(:categories) }
   scope :not_grouped, -> { left_outer_joins(:categories).where('categories.group_id' => nil ) }
@@ -8,4 +8,5 @@ class Exercise < ApplicationRecord
   belongs_to :user, class_name: 'User', foreign_key: :AuthorId
   has_many :categories
   has_many :groups, through: :categories
+
 end
