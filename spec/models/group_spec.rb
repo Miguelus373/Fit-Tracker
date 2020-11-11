@@ -2,22 +2,22 @@ require 'rails_helper'
 
 RSpec.describe Group, type: :model do
   let(:user) { User.create(Name: 'Group Owenr', icon: 'user-icon') }
-  let(:valid_attributes) { {Name: 'Group Name', Icon: 'group-icon'} }
-  let(:invalid_attributes) { {Name: '', Icon: ''} }
+  let(:valid_attributes) { { Name: 'Group Name', Icon: 'group-icon' } }
+  let(:invalid_attributes) { { Name: '', Icon: '' } }
 
-  describe "Validations tests for Group model" do
-    context "with valid parameters" do
-      it "creates a new Group" do
+  describe 'Validations tests for Group model' do
+    context 'with valid parameters' do
+      it 'creates a new Group' do
         expect(
-          user.groups.new valid_attributes
+          user.groups.new(valid_attributes)
         ).to be_valid
       end
     end
 
-    context "with invalid parameters" do
+    context 'with invalid parameters' do
       it "doesn't create a new Group" do
         expect(
-          user.groups.new invalid_attributes
+          user.groups.new(invalid_attributes)
         ).not_to be_valid
       end
     end

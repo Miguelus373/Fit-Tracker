@@ -1,22 +1,22 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  let(:valid_attributes) { {Name: 'User Name', icon: 'user-icon'} }
-  let(:invalid_attributes) { {Name: 'Extremely long user same'} }
+  let(:valid_attributes) { { Name: 'User Name', icon: 'user-icon' } }
+  let(:invalid_attributes) { { Name: 'Extremely long user same' } }
 
-  describe "Validations tests for User model" do
-    context "with valid parameters" do
-      it "creates a new User" do
+  describe 'Validations tests for User model' do
+    context 'with valid parameters' do
+      it 'creates a new User' do
         expect(
-          User.new valid_attributes
+          User.new(valid_attributes)
         ).to be_valid
       end
     end
 
-    context "with invalid parameters" do
+    context 'with invalid parameters' do
       it "doesn't create a new User" do
         expect(
-          User.new invalid_attributes
+          User.new(invalid_attributes)
         ).not_to be_valid
       end
     end

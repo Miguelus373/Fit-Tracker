@@ -2,22 +2,22 @@ require 'rails_helper'
 
 RSpec.describe Exercise, type: :model do
   let(:user) { User.create(Name: 'Exercise Owner', icon: 'user-icon') }
-  let(:valid_attributes) { {Name: 'Exercise Name', time: 10 } }
-  let(:invalid_attributes) { {Name: '', time: -10} }
+  let(:valid_attributes) { { Name: 'Exercise Name', time: 10 } }
+  let(:invalid_attributes) { { Name: '', time: -10 } }
 
-  describe "Validations tests for Exercise model" do
-    context "with valid parameters" do
-      it "creates a new Exercise" do
+  describe 'Validations tests for Exercise model' do
+    context 'with valid parameters' do
+      it 'creates a new Exercise' do
         expect(
-          user.exercises.new valid_attributes
+          user.exercises.new(valid_attributes)
         ).to be_valid
       end
     end
 
-    context "with invalid parameters" do
+    context 'with invalid parameters' do
       it "doesn't create a new Exercise" do
         expect(
-          user.exercises.new invalid_attributes
+          user.exercises.new(invalid_attributes)
         ).not_to be_valid
       end
     end

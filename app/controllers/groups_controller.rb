@@ -30,8 +30,9 @@ class GroupsController < ApplicationController
   end
 
   private
-    # Only allow a list of trusted parameters through.
-    def group_params
-      params.require(:group).permit(:Name, :Icon)
-    end
+
+  # Only allow a list of trusted parameters through.
+  def group_params
+    params.require(:group).permit(:Name, :Icon)
+  end
 end

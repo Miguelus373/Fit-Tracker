@@ -1,9 +1,9 @@
 class SessionsController < ApplicationController
-  before_action :require_login, only: [:destroy, :show]
-  before_action :logged_out?, except: [:destroy, :show]
-  
+  before_action :require_login, only: %i[destroy show]
+  before_action :logged_out?, except: %i[destroy show]
+
   def index; end
-  
+
   def show
     @user = current_user
   end
@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
       render 'new'
     end
   end
-  
+
   def destroy
     session[:user_id] = nil
     flash[:notice] = 'Succesfully logged out'

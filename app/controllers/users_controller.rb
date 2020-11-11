@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :require_login, except: [:new, :create]
+  before_action :require_login, except: %i[new create]
 
   # GET /users/new
   def new
@@ -21,8 +21,9 @@ class UsersController < ApplicationController
   end
 
   private
-    # Only allow a list of trusted parameters through.
-    def user_params
-      params.require(:user).permit(:Name, :icon)
-    end
+
+  # Only allow a list of trusted parameters through.
+  def user_params
+    params.require(:user).permit(:Name, :icon)
+  end
 end

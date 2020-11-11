@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   helper_method :current_user, :logged_in?, :require_login, :logged_out?, :to_time
-  
+
   def current_user
     User.find_by(id: session[:user_id])
   end
@@ -15,8 +15,8 @@ class ApplicationController < ActionController::Base
     else
       redirect_to root_path
     end
-  end  
-  
+  end
+
   def logged_out?
     if logged_in?
       redirect_to menu_path
@@ -26,7 +26,10 @@ class ApplicationController < ActionController::Base
   end
 
   def to_time(time)
-    "#{time/60}:" + (time%60 < 10 ? '0' + "#{time%60}" : 
-    "#{time%60}" + (time%60 < 10 ? '0' : ''))
+    if time % 60 < 10
+      "#{time / 60}:0#{time % 60}"
+    else
+      "#{time / 60}:#{time % 60}" + (time % 60 < 10 ? '0' : '')
+    end
   end
 end
