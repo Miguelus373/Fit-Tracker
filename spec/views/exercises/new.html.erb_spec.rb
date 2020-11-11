@@ -14,10 +14,12 @@ RSpec.describe "exercises/new", type: :view do
 
     assert_select "form[action=?][method=?]", exercises_path, "post" do
 
-      assert_select "input[name=?]", "exercise[AuthorId]"
-
       assert_select "input[name=?]", "exercise[Name]"
 
+      assert_select "input[name=?]", "exercise[distance]"
+
+      assert_select "input[name=?]", "exercise[time]"
+      
       assert_select "input[name=?]", "exercise[Amount]"
     end
   end

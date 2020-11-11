@@ -1,22 +1,28 @@
 require 'rails_helper'
 
 RSpec.describe "groups/index", type: :view do
+  let(:user) { User.create(Name: 'Group Owner', icon: 'user-icon') }
+
   before(:each) do
     assign(:groups, [
-      Group.create!(
-        Name: "Name",
-        Icon: "Icon"
+      user.groups.create!(
+        Name: "Name1",
+        Icon: "https://www.flaticon.com/svg/static/icons/svg/926/926158.svg"
       ),
-      Group.create!(
-        Name: "Name",
-        Icon: "Icon"
+      user.groups.create!(
+        Name: "Name2",
+        Icon: "https://www.flaticon.com/svg/static/icons/svg/926/926158.svg"
       )
     ])
   end
 
   it "renders a list of groups" do
     render
-    assert_select "tr>td", text: "Name".to_s, count: 2
-    assert_select "tr>td", text: "Icon".to_s, count: 2
+    expect(rendered).to match(/Name1/)
+  end
+
+  it "renders a list of groups" do
+    render
+    expect(rendered).to match(/Name2/)
   end
 end
