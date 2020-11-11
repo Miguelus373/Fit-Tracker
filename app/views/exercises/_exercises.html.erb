@@ -4,7 +4,7 @@
 <div class="item-box">
   <% @exercises.order(:created_at).reverse_each do |exercise| %>
   <div class="item">
-    <% if params[:external] %>
+    <% if exercise.groups.first.nil? %>
     <%= image_tag(exercise.user.icon, class: 'item-icon') %>
 
     <% else %>

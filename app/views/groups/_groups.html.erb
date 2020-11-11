@@ -3,8 +3,8 @@
 
 <%= link_to raw("#{image_tag(group.Icon, class: 'item-icon')}
   <p class='item-name'> #{group.Name} </p>
-  <p> Total execises: #{group.exercises.count} </p>
-  <p> Created on #{group.created_at.strftime('%b %d')} </p>"), 
+  <p> Created on #{group.created_at.strftime('%b %d')} </p> 
+  <p> by #{group.user.Name} </p>"),
 group_path(group.id), class: 'item' %>
 
 <% end %>
