@@ -1,9 +1,8 @@
 class Exercise < ApplicationRecord
-  validates :Name, presence: true
+  validates :Name, presence: { message: 'is missing. Please add a name' }
   validates :time, presence: true
-  validates :Amount, :distance, :time, numericality: { greater_than: 0, allow_nil: true }
+  validates :Amount, :distance, :time, numericality: { greater_than: 0, allow_nil: true, message: "can't be negative." }
 
-  scope :grouped, -> { joins(:categories) }
   scope :not_grouped, -> { left_outer_joins(:categories).where('categories.group_id' => nil ) }
   scope :total_time, -> { sum(:time) }
 

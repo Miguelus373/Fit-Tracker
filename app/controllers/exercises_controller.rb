@@ -26,7 +26,7 @@ class ExercisesController < ApplicationController
       end
       redirect_to exercises_path(external: true), notice: 'Exercise successfully created.'
     else
-      flash.now[:alert] = 'Somethig went wrong, please check your data and try again'
+      flash.now[:alert] = @exercise.errors.full_messages.first
       render :new
     end
   end
