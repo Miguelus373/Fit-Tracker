@@ -1,0 +1,14 @@
+<div class="menu">
+  <ul>
+    <li><%= image_tag(current_user.icon, class: 'user-icon') %></li>
+    <li><%= current_user.Name %></li>
+    <hr>
+    <li><%= link_to 'All exercises', exercises_path %></li>
+    <hr>
+    <li><%= link_to 'External exercises', exercises_path(external: true) %></li>
+    <hr>
+    <li><%= link_to 'All groups', groups_path %></li>
+    <hr>
+    <li><%= link_to 'Logout', '/logout', method: 'post' %></li>
+  </ul>
+</div>

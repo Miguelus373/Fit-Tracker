@@ -1,0 +1,17 @@
+<%= form_with(model: user, local: true) do |form| %>
+<p id="alert"> <%= alert %> </p>
+
+<%= form.text_field :Name, placeholder: 'Name', class: 'name-input' %>
+
+<div class="icons-field">
+<%= form.label 'Please select your profile icon:', class: 'icon-title' %>
+<% @icons.each do |icon| %>
+  <label>
+    <%= form.radio_button(:icon, icon, class: 'icon-select') %>
+    <%= image_tag(icon, class: 'icon') %>
+  </label>
+<% end %>
+</div>
+
+<%= form.submit 'Sign up', class: 'submit-btn' %>
+<% end %>

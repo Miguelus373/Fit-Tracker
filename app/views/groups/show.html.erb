@@ -1,0 +1,5 @@
+<h1 class="nav-title"><%= @group.Name %></h1>
+
+<%= render 'exercises/exercises', collection: @exercises = @group.exercises  %>
+
+<%= link_to raw('<span>Add Exercise</span>'), new_exercise_path(group: @group.id), class: 'action-btn' %>

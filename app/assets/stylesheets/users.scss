@@ -1,0 +1,32 @@
+$second-color: #5fb523;
+
+.user-icon {
+  width: 45%;
+  border: greenyellow solid 3px;
+  border-radius: 100px;
+  margin: 0 auto;
+}
+
+label {
+  .icon-select {
+    opacity: 0;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+  }
+
+  .icon {
+    width: 5rem;
+    height: 5rem;
+    border: 2px solid transparent;
+  }
+
+  .icon-select + .icon {
+    cursor: pointer;
+  }
+
+  .icon-select:checked + .icon {
+    border: 2px solid $second-color;
+    border-radius: 60px;
+  }
+}

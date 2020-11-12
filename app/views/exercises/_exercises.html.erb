@@ -1,0 +1,15 @@
+<%= time_tracker(@exercises) %>
+<p id="notice"><%= notice %></p>
+
+<div class="item-box">
+  <% @exercises.order(:created_at).reverse_each do |exercise| %>
+  <div class="item">
+    <%= exercise_icon(exercise) %>
+    <p class='item-name'> <%= exercise.Name %> </p>
+    <p class="tracker">
+    <%= exercise_stats(exercise) %>
+    </p>
+    <p> <%= time_ago_in_words exercise.created_at %> ago </p>
+  </div>
+  <% end %>
+</div>

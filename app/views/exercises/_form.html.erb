@@ -1,0 +1,14 @@
+<%= form_with(model: exercise, local: true) do |form| %>
+<p id="alert"> <%= alert %> </p>
+
+  <%= form.text_field :Name, placeholder: 'Exercise name', class: 'name-input' %>
+
+  <%= form.number_field :distance, step: :any, placeholder: 'Distance(Km)', class: 'name-input' %>
+  <%= form.number_field :time, placeholder: 'Time(minutes)', class: 'name-input' %>
+  <%= form.number_field :Amount, placeholder: 'Reps', class: 'name-input' %>
+
+  <%= form.hidden_field :group, value: params[:group]  %>
+
+  <%= form.submit 'Save', class: 'action-btn' %>
+
+<% end %>
