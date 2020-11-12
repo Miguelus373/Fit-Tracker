@@ -15,6 +15,7 @@ module ExercisesHelper
 
   def exercise_icon(exercise)
     group = exercise.groups.first
+
     if group.nil?
       image_tag(exercise.user.icon, class: 'item-icon')
     else
