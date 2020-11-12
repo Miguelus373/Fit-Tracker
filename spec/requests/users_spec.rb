@@ -44,7 +44,7 @@ RSpec.describe '/users', type: :request do
 
       it "renders a successful response (i.e. to display the 'new' template)" do
         post users_url, params: { user: invalid_attributes }
-        expect(response).to be_successful
+        expect(response).to redirect_to new_user_url
       end
     end
   end

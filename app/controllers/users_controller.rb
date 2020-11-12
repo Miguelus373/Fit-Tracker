@@ -23,8 +23,8 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to menu_path
     else
-      flash.now[:alert] = @user.errors.full_messages[0]
-      render 'new'
+      flash[:alert] = @user.errors.full_messages[0]
+      redirect_to new_user_path
     end
   end
 
