@@ -4,14 +4,7 @@
 <div class="item-box">
   <% @exercises.order(:created_at).reverse_each do |exercise| %>
   <div class="item">
-    <% if exercise.groups.first.nil? %>
-    <%= image_tag(exercise.user.icon, class: 'item-icon') %>
-
-    <% else %>
-    <%= link_to image_tag(exercise.groups.first.Icon), 
-    group_path(exercise.groups.first.id), class: 'item-icon' %>
-    <% end%>
-
+    <%= exercise_icon(exercise) %>
     <p class='item-name'> <%= exercise.Name %> </p>
     <p class="tracker">
       <strong><%= exercise.Amount.nil? ? '' : "#{exercise.Amount} reps" %></strong>
