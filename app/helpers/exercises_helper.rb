@@ -15,11 +15,11 @@ module ExercisesHelper
 
   def exercise_icon(exercise)
     group = exercise.groups.first
-    if group.nil? 
-      image_tag(exercise.user.icon, class: 'item-icon') 
-    else 
-      link_to image_tag(group.Icon), 
-      group_path(group.id), class: 'item-icon' 
+    if group.nil?
+      image_tag(exercise.user.icon, class: 'item-icon')
+    else
+      link_to image_tag(group.Icon),
+              group_path(group.id), class: 'item-icon'
     end
   end
 
